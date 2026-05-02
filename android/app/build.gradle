@@ -2,6 +2,21 @@ apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
 
+repositories {
+    google()
+    mavenCentral()
+    maven { url 'https://www.jitpack.io' }
+    maven { url 'https://maven.google.com' }
+    maven { url 'https://repo1.maven.org/maven2/' }
+    maven { 
+        url 'https://maven.pkg.github.com/react-native-async-storage/async-storage'
+        credentials {
+            username = ""
+            password = ""
+        }
+    }
+}
+
 /**
  * This is the configuration block to customize your React Native Android app.
  * By default you don't need to apply any configuration, just uncomment the lines you need.
@@ -51,6 +66,7 @@ react {
     // hermesFlags = ["-O", "-output-source-map"]
 
     /* Autolinking */
+    // hermesCommand = "$rootDir/../node_modules/react-native/sdks/hermesc/win64-bin/hermesc.exe"
     autolinkLibrariesWithApp()
 }
 
